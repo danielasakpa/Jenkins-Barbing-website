@@ -4,7 +4,7 @@ import React from "react";
 import BookingsTable from "@/components/Shared/BookingTable";
 import { useBookings } from "@/hooks/useBookings";
 
-const page = () => {
+const Page = () => {
   const {
     bookings,
     deletingBookingId,
@@ -57,4 +57,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

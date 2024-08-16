@@ -6,7 +6,7 @@ import BookingsTable from "@/components/Shared/BookingTable";
 import { Loader2 } from "lucide-react";
 import { useBookings } from "@/hooks/useBookings";
 
-const page = () => {
+const Page = () => {
   const { data: session, status } = useSession();
   const { bookings, deletingBookingId, error, loading, handleDelete } =
     useBookings(false);
@@ -72,4 +72,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
