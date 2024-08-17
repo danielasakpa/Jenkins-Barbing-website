@@ -38,7 +38,7 @@ const Page = () => {
       : "";
 
   return (
-    <div className="mt-36">
+    <div className="mt-10 lg:mt-36">
       <div className="px-4">
         <h1>Welcome, {session?.user?.name}</h1>
         <p>Email: {session?.user?.email}</p>

@@ -12,7 +12,7 @@ const BookingDetails = () => {
 
   return (
     <div className="flex flex-col md:flex-row my-10 md:px-16">
-      <div className="basis-1/2 order-last md:order-first">
+      <div className="basis-1/2 order-last md:order-first mt-6 lg:mt-0">
         <BookingForm />
       </div>
       <div className="basis-1/2 flex justify-center px-4 mb-4 md:mb-0">

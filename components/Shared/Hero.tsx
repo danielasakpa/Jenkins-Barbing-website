@@ -5,8 +5,8 @@ import Section from "./Section";
 
 const Hero = () => {
   return (
-    <Section className="w-full flex justify-center items-center md:px-4 h-screen mt-20 lg:mt-[40px]">
-      <div className="h-full grid place-items-center gap-24 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
+    <Section className="w-full flex justify-center items-center md:px-4 lg:h-screen py-32 lg:mt-[40px]">
+      <div className="grid place-items-center gap-14 px-4 md:px-6 grid-cols-1 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-4">
           <h1 className="h1-large font-bold tracking-tighter sm:text-5xl md:text-6xl">
             Our Hair Styles Enhance Your Smile
@@ -27,7 +27,7 @@ const Hero = () => {
           width="550"
           height="400"
           alt="Hero Image"
-          className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+          className="mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full"
         />
       </div>
     </Section>

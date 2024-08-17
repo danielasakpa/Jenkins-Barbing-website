@@ -76,7 +76,7 @@ const BookingForm = () => {
   const today = startOfDay(new Date());
 
   return (
-    <div className="container mx-auto px-4 w-max">
+    <div className="container mx-auto lg:px-4 w-max">
       <form onSubmit={handleSubmit} className="mt-4">
         <Label htmlFor="name">Name</Label>
         <Input
