@@ -119,11 +119,11 @@ body {
   /* TYPOGRAPHY */
   /* 64 */
   .h1-bold {
-    @apply font-bold text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[58px] xl:leading-[74px] tracking-tight;
+    @apply font-bold text-[42px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[58px] xl:leading-[74px] tracking-tight;
   }
 
   .h1-large {
-    @apply font-bold text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[80px] xl:leading-[74px] tracking-tight;
+    @apply font-bold text-[42px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[80px] xl:leading-[74px] tracking-tight;
   }
 
   /* 40 */
