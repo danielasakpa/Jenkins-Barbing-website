@@ -5,7 +5,6 @@ import { authConfig } from "@/lib/auth";
 const adminRoutes = ["/dashboard"];
 const userOnlyRoutes = ["/bookings", "/appointment"];
 const protectedRoutes = [...adminRoutes, "/bookings"];
-const publicRoutes = ["/", "/appointment", "/gallery", "/contact"];
 
 export default withAuth(
   function middleware(req) {
