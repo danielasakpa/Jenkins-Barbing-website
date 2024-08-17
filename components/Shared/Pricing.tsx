@@ -4,7 +4,7 @@ import { prices } from "@/constants";
 
 const Pricing = () => {
   return (
-    <Section className="md:mt-16 md:py-20 px-6 md:px-0 flex flex-col items-center justify-center text-center">
+    <Section className="mt-8 md:mt-16 md:py-20 px-6 md:px-0 flex flex-col items-center justify-center text-center">
       <div className="md:w-[50%] flex flex-col items-center justify-center">
         <span className="text-[#DC5F00]">PRICING TABLE</span>
         <h1 className="h1-bold">Pricing plans</h1>

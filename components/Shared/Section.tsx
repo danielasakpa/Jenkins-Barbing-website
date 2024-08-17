@@ -8,7 +8,7 @@ interface SectionProps {
 const Section = ({ children, className }: SectionProps) => {
   return (
     <section
-      className={`mx-auto max-w-[1366px] py-12 mt-6 lg:mt-20 md:py-24 lg:py-32 ${className}`}
+      className={`mx-auto max-w-[1366px] py-[65px] mt-6 lg:mt-20 md:py-24 lg:py-32 ${className}`}
     >
       {children}
     </section>
