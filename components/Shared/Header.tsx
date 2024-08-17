@@ -1,29 +1,24 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-
 import { navigation } from "@/constants/index";
 import Button from "@/components/Shared/Button";
-import { Menu } from "lucide-react";
+import { Menu, LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 const Header = () => {
   const pathname = usePathname();
   const [openNavigation, setOpenNavigation] = useState(false);
   const { data: session } = useSession();
+  const router = useRouter();
 
-  const toggleNavigation = () => {
-    if (openNavigation) {
-      setOpenNavigation(false);
-      // enablePageScroll();
-    } else {
-      setOpenNavigation(true);
-      // disablePageScroll();
-    }
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    router.push("/");
   };
 
   const handleClick = () => {
@@ -74,9 +69,17 @@ const Header = () => {
       </nav>
       <div className="flex items-center gap-2">
         {session ? (
-          <span className="hidden lg:block text-[#DC5F00] p-medium-16">
-            Welcome {session.user?.name?.split(/\s+/)[0]}
-          </span>
+          <div className="flex gap-4 items-center">
+            <span className="hidden lg:block text-[#DC5F00] p-medium-16">
+              Welcome {session.user?.name?.split(/\s+/)[0]}
+            </span>
+            <Button
+              onClick={handleSignOut}
+              className="hidden sm:inline-flex text-white bg-[#DC5F00] hover:bg-white hover:text-foreground"
+            >
+              Sign Out
+            </Button>
+          </div>
         ) : (
           <>
             <Link href="/sign-up">
@@ -88,7 +91,7 @@ const Header = () => {
               </Button>
             </Link>
             <Link href="/sign-in">
-              <Button className="hidden sm:inline-flex text-white bg-[#DC5F00]">
+              <Button className="hidden sm:inline-flex text-white bg-[#DC5F00] hover:bg-white hover:text-foreground">
                 Sign In
               </Button>
             </Link>
@@ -146,6 +149,15 @@ const Header = () => {
                       {item.title}
                     </Link>
                   ))}
+                {session && (
+                  <Button
+                    onClick={handleSignOut}
+                    className="flex items-center gap-3 mt-4 text-white bg-[#DC5F00] w-full hover:bg-white hover:text-foreground"
+                  >
+                    <LogOut size={16} />
+                    Sign Out
+                  </Button>
+                )}
               </nav>
               {!session && (
                 <div className="flex flex-col gap-2">
