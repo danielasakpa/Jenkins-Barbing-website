@@ -1,11 +1,11 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
-import { authConfig } from "@/lib/auth"; // Adjust the path to your auth options
+import { authConfig } from "@/lib/auth";
 
 const adminRoutes = ["/dashboard"];
 const userOnlyRoutes = ["/bookings"];
 const protectedRoutes = [...adminRoutes, "/bookings"];
-const publicRoutes = ["/", "/about", "/contact"]; // Add your public routes here
+const publicRoutes = ["/", "/appointment", "/gallery", "/contact"];
 
 export default withAuth(
   function middleware(req) {
@@ -28,7 +28,15 @@ export default withAuth(
   {
     ...authConfig,
     callbacks: {
-      authorized: ({ token }) => true, // Allow access to non-protected routes
+      authorized: ({ token, req }) => {
+        const { pathname } = req.nextUrl;
+        // Allow access to public routes
+        if (publicRoutes.some((route) => pathname.startsWith(route))) {
+          return true;
+        }
+        // Require authentication for protected routes
+        return !!token;
+      },
     },
     pages: {
       signIn: "/sign-in",
