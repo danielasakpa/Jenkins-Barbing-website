@@ -3,8 +3,9 @@ import { NextResponse } from "next/server";
 import { authConfig } from "@/lib/auth"; // Adjust the path to your auth options
 
 const adminRoutes = ["/dashboard"];
-const userOnlyRoutes = ["/bookings", "/appointment"];
+const userOnlyRoutes = ["/bookings"];
 const protectedRoutes = [...adminRoutes, "/bookings"];
+const publicRoutes = ["/", "/about", "/contact"]; // Add your public routes here
 
 export default withAuth(
   function middleware(req) {
@@ -27,7 +28,7 @@ export default withAuth(
   {
     ...authConfig,
     callbacks: {
-      authorized: ({ token }) => !!token, // Require authentication for all protected routes
+      authorized: ({ token }) => true, // Allow access to non-protected routes
     },
     pages: {
       signIn: "/sign-in",
