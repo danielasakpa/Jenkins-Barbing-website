@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { authConfig } from "@/lib/auth";
 
 const adminRoutes = ["/dashboard"];
-const userOnlyRoutes = ["/bookings"];
+const userOnlyRoutes = ["/bookings", "/appointment"];
 const protectedRoutes = [...adminRoutes, "/bookings"];
 const publicRoutes = ["/", "/appointment", "/gallery", "/contact"];
 
@@ -30,12 +30,12 @@ export default withAuth(
     callbacks: {
       authorized: ({ token, req }) => {
         const { pathname } = req.nextUrl;
-        // Allow access to public routes
-        if (publicRoutes.some((route) => pathname.startsWith(route))) {
-          return true;
+        //Require authentication for protected routes
+        if (protectedRoutes.some((route) => pathname.startsWith(route))) {
+          return !!token;
         }
-        // Require authentication for protected routes
-        return !!token;
+        // Allow access to public routes
+        return true;
       },
     },
     pages: {
