@@ -125,7 +125,8 @@ const Header = () => {
               <nav className="grid gap-2">
                 {navigation
                   .filter((item) => {
-                    if (item.title === "Appointment") return true; // Always show Appointment
+                    if (item.title === "Appointment")
+                      return !session?.user?.isAdmin; // Always show Appointment
                     if (item.title === "Bookings")
                       return session && !session.user?.isAdmin; // Show Bookings only for authenticated non-admin users
                     if (item.title === "Dashboard")
