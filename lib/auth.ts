@@ -17,8 +17,7 @@ export const authConfig: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials || !credentials.email || !credentials.password)
-          return null;
+        if (!credentials?.email || !credentials?.password) return null;
 
         const dbUser = await prisma.user.findUnique({
           where: { email: credentials.email },
@@ -46,15 +45,22 @@ export const authConfig: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
-        token.isAdmin = user.isAdmin;
+        if (account?.provider === "google") {
+          const dbUser = await prisma.user.findUnique({
+            where: { email: user.email! },
+          });
+          token.isAdmin = dbUser?.isAdmin || false;
+        } else {
+          token.isAdmin = user.isAdmin || false;
+        }
       }
       return token;
     },
     async session({ session, token }) {
-      if (token) {
-        session.user.isAdmin = token.isAdmin;
+      if (session.user) {
+        session.user.isAdmin = token.isAdmin as boolean;
       }
       return session;
     },
