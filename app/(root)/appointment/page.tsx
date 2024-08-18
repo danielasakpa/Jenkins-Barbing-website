@@ -16,7 +16,7 @@ const Page = () => {
           <Link href={"/"} className="hover:text-yellow">
             Home
           </Link>{" "}
-          / <span className="text-[#DC5F00]">About Us</span>
+          / <span className="text-[#DC5F00] mb-3">About Us</span>
         </span>
         <div className="absolute bg-black h-full w-full-z-10" />
       </Section>

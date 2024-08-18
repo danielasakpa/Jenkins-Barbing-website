@@ -103,7 +103,7 @@ const ImageUploader = ({ setUploaded }: ImageUploaderProps) => {
   };
 
   return (
-    <Card className="w-full max-w-md bg-black mx-auto text-white">
+    <Card className="w-full max-w-md bg-black mx-auto text-white mb-5">
       <CardHeader>
         <CardTitle>Upload Image</CardTitle>
         <CardDescription>Add a new image to your gallery.</CardDescription>

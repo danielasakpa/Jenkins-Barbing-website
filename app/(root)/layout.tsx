@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <div>
       <Header />
-      <main className="relative min-h-[100vh] bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto m">
+      <main className="relative min-h-[100vh] bg-black-100 flex items-center flex-col overflow-hidden mx-auto m">
         {status === "loading" ? (
           <div className="fixed inset-0 z-50 bg-black/100">
             <div className="fixed flex justify-center items-center left-[50%] top-[50%] z-50 w-max translate-x-[-50%] translate-y-[-50%] gap-4 p-6">

@@ -14,7 +14,7 @@ const ServicesCard = ({ service }: { service: ServicesCardProps }) => {
     <div className="card">
       <div className="content">
         <span className="title p-semibold-20 text1">{service.title}</span>
-        <p className="mt-6 p-regular-14 ">{service.desc}</p>
+        <p className="mt-6 p-regular-14 hidden lg:block">{service.desc}</p>
         <Link href="/appointment">
           <Button className="btn">Book Now</Button>
         </Link>
