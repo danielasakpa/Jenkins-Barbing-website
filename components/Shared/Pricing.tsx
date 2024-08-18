@@ -6,7 +6,7 @@ const Pricing = () => {
   return (
     <Section className="mt-8 md:mt-16 md:py-20 px-6 md:px-0 flex flex-col items-center justify-center text-center">
       <div className="md:w-[50%] flex flex-col items-center justify-center">
-        <span className="text-[#DC5F00] mb-3">PRICING TABLE</span>
+        <span className="text-[#028391] mb-3 font-semibold">PRICING TABLE</span>
         <h1 className="h1-bold">Pricing plans</h1>
         <p className="mt-4 p-regular-18">
           Affordable services with no compromise on quality. Choose a plan that

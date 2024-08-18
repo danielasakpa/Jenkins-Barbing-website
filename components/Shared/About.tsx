@@ -7,10 +7,10 @@ const About = () => {
     <Section className="py-24 lg:py-36">
       <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-36">
         <div className="text-center flex flex-col justify-center items-center">
-          <span className="text-[#DC5F00] mb-3">INTRODUCING</span>
-          <h1 className="h1-bold">About Jenkins&apos;s Haircut</h1>
+          <span className="text-[#028391] mb-3 font-semibold">INTRODUCING</span>
+          <h1 className="h1-bold">About Jenkins Haircut</h1>
           <p className="mt-4 p-regular-18">
-            Jenkins&apos;s Haircut is where style meets skill. With years of
+            Jenkins Haircut is where style meets skill. With years of
             experience, Jenkins delivers sharp cuts and a welcoming vibe. Your
             look, our passion
           </p>

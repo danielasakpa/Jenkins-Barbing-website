@@ -36,7 +36,7 @@ const Header = () => {
         prefetch={false}
       >
         <ScissorsIcon className="w-7 h-7" />
-        <span className="p-medium-18 lg:p-medium-24 text-white">JENKINS</span>
+        <span className="p-medium-20 lg:p-medium-24 text-white">Jenkins</span>
       </Link>
       <nav
         className={`${
@@ -57,8 +57,8 @@ const Header = () => {
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block relative font-code mx-0 p-regular-14 opacity-80 text-white text-n-1 transition-colors hover:text-[#AC6AFF] px-6 py-6 md:py-8  ${
-                  item.url === pathname && "z-2 lg:text-[#AC6AFF]"
+                className={`block relative font-code mx-0 p-regular-14 opacity-80 text-white text-n-1 transition-colors hover:text-[#028391] px-6 py-6 md:py-8  ${
+                  item.url === pathname && "z-2 lg:text-[#028391]"
                 } lg:leading-5 xl:px-6`}
               >
                 {item.title}
@@ -69,12 +69,12 @@ const Header = () => {
       <div className="flex items-center gap-2">
         {session ? (
           <div className="flex gap-4 items-center">
-            <span className="hidden lg:block text-[#DC5F00] p-medium-16">
+            <span className="hidden lg:block text-[#028391] p-medium-16">
               Welcome {session.user?.name?.split(/\s+/)[0]}
             </span>
             <Button
               onClick={handleSignOut}
-              className="hidden sm:inline-flex text-white bg-[#DC5F00] hover:bg-white hover:text-foreground"
+              className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white"
             >
               Sign Out
             </Button>
@@ -84,13 +84,13 @@ const Header = () => {
             <Link href="/sign-up">
               <Button
                 variant="outline"
-                className="hidden sm:inline-flex text-[#DC5F00]"
+                className="hidden sm:inline-flex text-[#028391]"
               >
                 Create Account
               </Button>
             </Link>
             <Link href="/sign-in">
-              <Button className="hidden sm:inline-flex text-white bg-[#DC5F00] hover:bg-white hover:text-foreground">
+              <Button className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white">
                 Sign In
               </Button>
             </Link>
@@ -112,12 +112,12 @@ const Header = () => {
               >
                 <ScissorsIcon className="w-7 h-7" />
                 <span className="p-medium-20 lg:p-medium-24 text-white">
-                  JENKINS
+                  Jenkins
                 </span>
               </Link>
 
               {session && (
-                <span className="text-[#DC5F00] p-medium-18">
+                <span className="text-[#028391] p-medium-18">
                   Welcome {session.user?.name?.split(/\s+/)[0]}
                 </span>
               )}
@@ -138,7 +138,7 @@ const Header = () => {
                       href={item.url}
                       className={`flex items-center gap-2 text-sm text-white font-medium transition-colors ${
                         item.url === pathname &&
-                        "z-2 text-[#AC6AFF] active:text-[#AC6AFF] focus:text-[#AC6AFF]"
+                        "z-2 text-[#028391] active:text-[#028391] focus:text-[#028391]"
                       } `}
                       prefetch={false}
                     >
@@ -148,7 +148,7 @@ const Header = () => {
                 {session && (
                   <Button
                     onClick={handleSignOut}
-                    className="flex items-center gap-3 mt-4 text-white bg-[#DC5F00] w-full hover:bg-white hover:text-foreground"
+                    className="flex items-center gap-3 mt-4 text-white bg-[#028391] w-full hover:bg-white hover:text-[#222324]"
                   >
                     <LogOut size={16} />
                     Sign Out
@@ -160,13 +160,13 @@ const Header = () => {
                   <Link href="/sign-up">
                     <Button
                       variant="outline"
-                      className="inline-flex text-[#DC5F00] w-full"
+                      className="inline-flex text-[#222324] hover:bg-[#028391] hover:text-white w-full"
                     >
                       Create Account
                     </Button>
                   </Link>
                   <Link href="/sign-in">
-                    <Button className="inline-flex text-white bg-[#DC5F00] w-full">
+                    <Button className="flex items-center gap-3 text-white bg-[#028391] w-full hover:bg-white hover:text-[#222324]">
                       Sign In
                     </Button>
                   </Link>

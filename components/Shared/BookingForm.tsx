@@ -114,7 +114,10 @@ const BookingForm = () => {
           selectedService={selectedService}
           setSelectedService={setSelectedService}
         />
-        <button type="submit" className="mt-4 px-4 py-2 bg-blue-500 text-white">
+        <button
+          type="submit"
+          className="mt-4 px-4 py-2 bg-[#028391] rounded-sm text-white"
+        >
           Book Now
         </button>
       </form>
