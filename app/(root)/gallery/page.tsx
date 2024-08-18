@@ -6,6 +6,7 @@ import { Loader2, Trash } from "lucide-react";
 import ImageUploader from "@/components/Shared/ImageUploader";
 import { useSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
+import Image from "next/image";
 
 const GalleryPage = () => {
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
@@ -81,10 +82,12 @@ const GalleryPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-14">
         {galleryImages.map((image: GalleryImage) => (
           <div key={image.id} className="relative group">
-            <img
+            <Image
               src={image.imageUrl}
               alt={image.title || "Gallery Image"}
-              className="w-full h-64 object-cover"
+              className="w-full rounded-lg overflow-hidden object-cover aspect-[4/3]"
+              width="400"
+              height="300"
             />
             {session?.user?.isAdmin && (
               <button
