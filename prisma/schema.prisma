@@ -11,9 +11,10 @@ model User {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   email     String   @unique
-  password  String
-  address Address?
-  isAdmin   Boolean @default(false)
+  password  String?
+  googleId  String?  @unique
+  address   Address?
+  isAdmin   Boolean  @default(false)
   bookings  Booking[]
 }
 
