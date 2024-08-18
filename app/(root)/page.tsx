@@ -21,9 +21,9 @@ export default function Home() {
               Revitalize your senses and Refresh your mind.
             </h1>
             <p className="mt-4 p-regular-18">
-              At Jenkins's Haircut, we offer more than just a haircut. Refresh
-              your mind and revitalize your senses in a relaxing atmosphere,
-              leaving you looking sharp and feeling renewed.
+              At JenkinsIt&apos;s Haircut, we offer more than just a haircut.
+              Refresh your mind and revitalize your senses in a relaxing
+              atmosphere, leaving you looking sharp and feeling renewed.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ export default function Home() {
           <h1 className="h1-bold">Hear from our customers</h1>
           <p className="mt-4 p-regular-18">
             Don't just take our word for it—hear what our clients have to say
-            about their experience at Jenkins's Haircut
+            about their experience at JenkinsIt&apos;s Haircut
           </p>
         </div>
         <InfiniteMovingCardsDemo />

@@ -46,7 +46,7 @@ const testimonials = [
   },
   {
     quote:
-      "Every visit to Jenkins' Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
+      "Every visit to JenkinsIt&apos; Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
     name: "Herman Melville",
     title: "Moby-Dick",
     img: "/test5.jpg",
@@ -81,7 +81,7 @@ const testimonials = [
   },
   {
     quote:
-      "Every visit to Jenkins' Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
+      "Every visit to JenkinsIt&apos; Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
     name: "Herman Melville",
     title: "Moby-Dick",
     img: "/test5.jpg",
@@ -116,7 +116,7 @@ const testimonials = [
   },
   {
     quote:
-      "Every visit to Jenkins' Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
+      "Every visit to JenkinsIt&apos; Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
     name: "Herman Melville",
     title: "Moby-Dick",
     img: "/test5.jpg",

@@ -10,9 +10,9 @@ const Services = () => {
         <span className="text-[#DC5F00] mb-3">SERVICES</span>
         <h1 className="h1-bold">Our services</h1>
         <p className="mt-4 p-regular-18">
-          At Jenkins's Haircut, we offer a range of grooming services to keep
-          you looking your best. Whether you're after a classic cut or a fresh
-          new style, our skilled barbers are here to deliver.
+          At JenkinsIt&apos;s Haircut, we offer a range of grooming services to
+          keep you looking your best. Whether you're after a classic cut or a
+          fresh new style, our skilled barbers are here to deliver.
         </p>
       </div>
 
