@@ -29,11 +29,11 @@ export const navigation = [
     isAuth: true,
     isAdmin: true,
   },
-  {
-    id: "5",
-    title: "Contact",
-    url: "/contact",
-  },
+  // {
+  //   id: "5",
+  //   title: "Contact",
+  //   url: "/contact",
+  // },
 ];
 
 export const services = [
@@ -142,7 +142,7 @@ export const prices: PriceItem[] = [
   },
   {
     id: 13,
-    service: "Home Services",
+    service: "Home Service",
     price: "Negotiable",
     Negotiable: true,
     desc: "Enjoy our barbing services in the comfort of your home with our convenient home service option.",
@@ -158,7 +158,7 @@ export const footerContacts = [
   {
     id: 2,
     icon: "MdEmail",
-    title: "jenkinshaircut@gmail.com",
+    title: " Jenkinshaircut@gmail.com",
   },
   {
     id: 3,
