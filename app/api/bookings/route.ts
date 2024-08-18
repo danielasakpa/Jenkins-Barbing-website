@@ -27,6 +27,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const { email, service, date, time } = await request.json();
+    console.log(email);
 
     const parsedDate = new Date(date);
 
@@ -40,10 +41,27 @@ export async function POST(request: NextRequest) {
       where: { email: email },
     });
 
-    console.log(dbUser);
-
     if (!dbUser) {
+      console.log("User not found");
       return NextResponse.json({ error: "User not found" }, { status: 400 });
+    }
+
+    // Check if the time slot has already been booked.
+    const alreadyTaken = await prisma.booking.findFirst({
+      where: {
+        date: newDate,
+        time: time,
+      },
+    });
+
+    if (alreadyTaken) {
+      return NextResponse.json(
+        {
+          message:
+            "This time slot is already booked. Please choose another time.",
+        },
+        { status: 400 }
+      );
     }
 
     // Check if the user has already booked on the selected date
@@ -55,6 +73,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (existingBooking) {
+      console.log("You have already booked an appointment for this date.");
       return NextResponse.json(
         { message: "You have already booked an appointment for this date." },
         { status: 400 }
