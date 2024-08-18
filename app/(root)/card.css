@@ -67,13 +67,13 @@
   transition: transform calc(var(--d) * 2) var(--e);
 }
 .card:nth-child(1):before {
-  background-image: url(https://images.unsplash.com/photo-1605497788044-5a32c7078486?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFyYmVyfGVufDB8fDB8fHww);
+  background-image: url("/Haircut.jpg");
 }
 .card:nth-child(2):before {
-  background-image: url(https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJhcmJlcnxlbnwwfHwwfHx8MA%3D%3D);
+  background-image: url("/Haircut & dye.jpg");
 }
 .card:nth-child(3):before {
-  background-image: url(https://images.pexels.com/photos/2698935/pexels-photo-2698935.jpeg?auto=compress&cs=tinysrgb&w=600);
+  background-image: url("/Dreadlocks.jpg");
 }
 .card:nth-child(4):before {
   background-image: url(https://content.latest-hairstyles.com/wp-content/uploads/curly-afro-with-the-perfect-ringlets-for-men.jpg);
@@ -82,7 +82,7 @@
   background-image: url(https://hairstylesfeed.com/wp-content/uploads/2021/10/Low-fade-waves.jpg);
 }
 .card:nth-child(6):before {
-  background-image: url(https://groomedbyelereka.com/wp-content/uploads/2022/04/BENS4041-scaled.jpg);
+  background-image: url("/Home Service.jpg");
 }
 
 .content {
