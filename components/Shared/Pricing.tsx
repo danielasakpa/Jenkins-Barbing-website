@@ -6,11 +6,11 @@ const Pricing = () => {
   return (
     <Section className="mt-8 md:mt-16 md:py-20 px-6 md:px-0 flex flex-col items-center justify-center text-center">
       <div className="md:w-[50%] flex flex-col items-center justify-center">
-        <span className="text-[#DC5F00]">PRICING TABLE</span>
+        <span className="text-[#DC5F00] mb-3">PRICING TABLE</span>
         <h1 className="h1-bold">Pricing plans</h1>
         <p className="mt-4 p-regular-18">
-          There is a distinction between a beauty salon and a hair salon and
-          although many small businesses.
+          Affordable services with no compromise on quality. Choose a plan that
+          suits your style and budget.
         </p>
       </div>
 

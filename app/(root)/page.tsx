@@ -14,20 +14,21 @@ export default function Home() {
       <Services />
       <Pricing />
       <div className="bg-black">
-        <Section className="mt-16 py-20 px-4 md:px-0 flex flex-col items-center justify-center text-center">
+        <Section className="mt-16 !py-[100px] px-4 md:px-0 flex flex-col items-center justify-center text-center">
           <div className="md:w-[50%] flex flex-col items-center justify-center text-white">
-            <span className="text-[#DC5F00]">THE JENKINS SALON</span>
+            <span className="text-[#DC5F00] mb-3">THE JENKINS SALON</span>
             <h1 className="h1-bold">
               Revitalize your senses and Refresh your mind.
             </h1>
             <p className="mt-4 p-regular-18">
-              There is a distinction between a beauty salon and a hair salon and
-              although many small businesses do offer both sets of treatments.
+              At Jenkins's Haircut, we offer more than just a haircut. Refresh
+              your mind and revitalize your senses in a relaxing atmosphere,
+              leaving you looking sharp and feeling renewed.
             </p>
           </div>
 
           <Button
-            className="mt-8 w-[max-content] hidden lg:flex bg-[#DC5F00] text-white"
+            className="mt-8 w-[max-content] flex bg-[#DC5F00] text-white"
             href="#login"
           >
             MAKE AN APPOINTMENT
@@ -37,11 +38,11 @@ export default function Home() {
 
       <Section className="mt-16 md:mb-10 py-20 px-4 md:px-0 flex flex-col items-center justify-center text-center">
         <div className="md:w-[50%] flex flex-col items-center justify-center mb-4">
-          <span className="text-[#DC5F00]">TESTIMONIALS</span>
+          <span className="text-[#DC5F00] mb-3">TESTIMONIALS</span>
           <h1 className="h1-bold">Hear from our customers</h1>
           <p className="mt-4 p-regular-18">
-            There is a distinction between a beauty salon and a hair salon and
-            although many small businesses.
+            Don't just take our word for it—hear what our clients have to say
+            about their experience at Jenkins's Haircut
           </p>
         </div>
         <InfiniteMovingCardsDemo />
