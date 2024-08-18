@@ -23,11 +23,12 @@ export const authConfig: NextAuthOptions = {
           where: { email: credentials.email },
         });
 
-        if (dbUser) {
+        if (dbUser && dbUser.password) {
           const isValidPassword = await bcrypt.compare(
             credentials.password,
             dbUser.password
           );
+
           if (isValidPassword) {
             const { password, ...dbUserWithoutPassword } = dbUser;
             return {
@@ -45,6 +46,33 @@ export const authConfig: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider === "google") {
+        const dbUser = await prisma.user.findUnique({
+          where: { email: user.email! },
+        });
+        if (dbUser) {
+          // Update the existing user with Google ID if not present
+          if (!dbUser.googleId) {
+            await prisma.user.update({
+              where: { id: dbUser.id },
+              data: { googleId: account.providerAccountId },
+            });
+          }
+        } else {
+          // Create a new user if they don't exist
+          await prisma.user.create({
+            data: {
+              name: user.name!,
+              email: user.email!,
+              googleId: account.providerAccountId,
+              isAdmin: false,
+            },
+          });
+        }
+      }
+      return true;
+    },
     async jwt({ token, user, account }) {
       if (user) {
         if (account?.provider === "google") {
