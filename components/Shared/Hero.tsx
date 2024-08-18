@@ -23,7 +23,7 @@ const Hero = () => {
           </Button>
         </div>
         <Image
-          src="/about4.jpg"
+          src="/about4.webp"
           width="550"
           height="400"
           alt="Hero Image"
