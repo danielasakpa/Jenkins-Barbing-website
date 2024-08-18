@@ -38,14 +38,19 @@ export const useBookings = (isAdmin: boolean) => {
 
         const data = await response.json();
         const now = new Date();
+        const nowFormatted = now.toLocaleDateString("en-GB");
+
         const updatedBookings = data.bookings.map((booking: Booking) => {
           const bookingDate = new Date(booking.date);
+          const bookingDateFormatted = bookingDate.toLocaleDateString("en-GB");
           const isExpired =
-            bookingDate < now && booking.status !== "Closed"
+            bookingDateFormatted < nowFormatted && booking.status !== "Closed"
               ? "Expired"
               : booking.status;
+
           return { ...booking, status: isExpired };
         });
+
         const sortedBookings = updatedBookings.sort(
           (a: Booking, b: Booking) =>
             new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -61,7 +66,13 @@ export const useBookings = (isAdmin: boolean) => {
     };
 
     fetchBookings();
-  }, [isAdmin, session?.user?.email, status]);
+  }, [
+    isAdmin,
+    session?.user?.email,
+    status,
+    closingBookingId,
+    deletingBookingId,
+  ]);
 
   const handleDelete = async (bookingId: string) => {
     setDeletingBookingId(bookingId);
