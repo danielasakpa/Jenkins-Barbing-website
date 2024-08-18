@@ -36,8 +36,6 @@ const TimeInput: React.FC<TimePickerProps> = ({
   setTime,
   bookedTimes,
 }) => {
-  console.log(bookedTimes);
-  console.log(time);
   return (
     <label className="block mt-2">
       Select Time:
