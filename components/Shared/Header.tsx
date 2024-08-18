@@ -5,10 +5,10 @@ import { useState } from "react";
 import { navigation } from "@/constants/index";
 import Button from "@/components/Shared/Button";
 import { Menu, LogOut } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import ScissorsIcon from "./icons/ScissorsIcon";
 
 const Header = () => {
   const pathname = usePathname();
@@ -30,14 +30,13 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 z-50 bg-[#222324] flex h-20 w-full items-center justify-between px-4 md:px-6">
-      <Link href="/" className="mr-6 flex items-center" prefetch={false}>
-        <Image
-          src={"/header-logo.png"}
-          width={50}
-          height={40}
-          alt="header-logo"
-        />
-        <span className="p-medium-24 text-white">JENKINS</span>
+      <Link
+        href="/"
+        className="mr-6 flex items-center text-white"
+        prefetch={false}
+      >
+        <ScissorsIcon className="w-7 h-7" />
+        <span className="p-medium-18 lg:p-medium-24 text-white">JENKINS</span>
       </Link>
       <nav
         className={`${
@@ -108,16 +107,13 @@ const Header = () => {
             <div className="grid gap-4 p-4">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-lg text-white font-medium"
+                className="flex items-center text-white"
                 prefetch={false}
               >
-                <Image
-                  src={"/header-logo.png"}
-                  width={50}
-                  height={40}
-                  alt="header-logo"
-                />
-                <span>JENKINS</span>
+                <ScissorsIcon className="w-7 h-7" />
+                <span className="p-medium-20 lg:p-medium-24 text-white">
+                  JENKINS
+                </span>
               </Link>
 
               {session && (
