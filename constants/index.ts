@@ -111,7 +111,7 @@ export const prices: PriceItem[] = [
   {
     id: 6,
     service: "Rough Curl",
-    price: "500",
+    price: "5000",
     desc: "Create a textured and tousled look with our rough curl styling service.",
   },
   {
@@ -153,17 +153,17 @@ export const footerContacts = [
   {
     id: 1,
     icon: "FaLocationDot",
-    title: "New York 450 2nd St, Suite 100, NY 84206",
+    title: "King Joe Plaza, Edu Agbara Ogun State Nigeria",
   },
   {
     id: 2,
     icon: "MdEmail",
-    title: "contact@sentobar.com",
+    title: "jenkinshaircut@gmail.com",
   },
   {
     id: 3,
     icon: "IoCallSharp",
-    title: "+1-202-555-0135",
+    title: "09156561888",
   },
   {
     id: 4,
