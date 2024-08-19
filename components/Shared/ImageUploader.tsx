@@ -137,7 +137,7 @@ const ImageUploader = ({ setUploaded }: ImageUploaderProps) => {
           <Button
             type="submit"
             disabled={loading}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+            className="bg-[#028391] text-white px-4 py-2 rounded-md hover:bg-white hover:text-[#028391]"
           >
             {loading ? "Uploading..." : "Upload Image"}
           </Button>

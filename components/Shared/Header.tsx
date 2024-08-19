@@ -74,7 +74,7 @@ const Header = () => {
             </span>
             <Button
               onClick={handleSignOut}
-              className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white"
+              className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white hover:text-[#028391]"
             >
               Sign Out
             </Button>
@@ -90,7 +90,7 @@ const Header = () => {
               </Button>
             </Link>
             <Link href="/sign-in">
-              <Button className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white">
+              <Button className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white hover:text-[#028391]">
                 Sign In
               </Button>
             </Link>

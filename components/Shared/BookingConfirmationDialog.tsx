@@ -100,7 +100,7 @@ const BookingConfirmationDialog = ({
           <div>
             <Button
               onClick={handleBooking}
-              className="bg-blue-500 text-white"
+              className="bg-[#028391] text-white"
               disabled={loading}
             >
               {loading ? (
