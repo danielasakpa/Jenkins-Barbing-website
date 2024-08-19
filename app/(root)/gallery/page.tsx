@@ -79,7 +79,7 @@ const GalleryPage = () => {
 
   return (
     <div className="mt-28 px-3 md:px-0">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-14 lg:px-6">
         {galleryImages.map((image: GalleryImage) => (
           <div key={image.id} className="relative group">
             <Image

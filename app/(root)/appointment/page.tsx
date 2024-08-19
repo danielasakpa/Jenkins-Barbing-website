@@ -5,7 +5,7 @@ import Section from "@/components/Shared/Section";
 const Page = () => {
   return (
     <div className="w-full">
-      <Section className="relative bg-black px-6 md:px-0 lg:!mt-8 mb-20 md:mb-24 h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
+      <Section className="relative bg-black px-6 md:px-0 lg:!mt-8 mb-20 md:!mb-24 h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
         <h1 className="h2-bold lg:h1-large text-white mt-10">Online Booking</h1>
         <span className="p-medium-16 p-medium-20 text-white text">
           Get the Perfect Cut or Shave – Book Your Appointment Online in Just a
