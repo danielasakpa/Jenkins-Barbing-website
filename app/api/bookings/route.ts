@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
     if (booking) {
       // Send email notifications
       await handleBooking({
-        barberEmail: "danielasakpa@gmail.com",
+        barberEmail: "jenkinshaircut@gmail.com",
         userName: dbUser.name,
         userEmail: dbUser.email,
         service: service,
