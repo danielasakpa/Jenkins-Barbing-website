@@ -12,6 +12,7 @@ import {
 import { Loader2 } from "lucide-react";
 import { Booking } from "@/types";
 import { Button } from "../ui/button";
+import { useSession } from "next-auth/react";
 
 interface BookingsTableProps {
   bookings: Booking[];
@@ -28,6 +29,8 @@ const BookingsTable: React.FC<BookingsTableProps> = ({
   deletingBookingId,
   closingBookingId,
 }) => {
+  const { data: session } = useSession();
+
   return (
     <Table>
       <TableHeader>
@@ -78,8 +81,8 @@ const BookingsTable: React.FC<BookingsTableProps> = ({
                 className="bg-red-500 text-white hover:text-red-700 hover:bg-transparent !p-1 rounded-sm cursor-pointer"
                 disabled={
                   deletingBookingId === booking.id ||
-                  booking.status === "Expired" ||
-                  booking.status === "Closed"
+                  (booking.status === "Expired" && !session?.user?.isAdmin) ||
+                  (booking.status === "Closed" && !session?.user?.isAdmin)
                 }
               >
                 <div className="w-16 flex justify-center">
