@@ -13,7 +13,7 @@ const Gallery = () => {
         <div className="boxes__box"></div>
         <div className="z-70 boxes__box">
           <Image
-            src="/about.jpg"
+            src="/about6.jpg"
             width={300}
             height={300}
             alt=""
