@@ -24,7 +24,7 @@ const BookingForm = () => {
     email: string;
     date: Date | undefined;
     time: string;
-    service: Service;
+    service: Service | undefined;
   } | null>(null);
 
   const [bookedTimes, setBookedTimes] = useState<string[]>([]);
