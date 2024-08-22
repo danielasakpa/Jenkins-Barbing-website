@@ -5,6 +5,8 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { BookingProvider } from "@/context/BookingContext";
 import NextAuthProvider from "@/context/NextAuthProvider";
+import { ServicesProvider } from "@/context/ServicesContext";
+
 import { Toaster } from "@/components/ui/toaster";
 
 const lora = Lora({
@@ -50,7 +52,9 @@ export default function RootLayout({
         className={`${GeistSans.className} ${GeistMono.variable} ${lora.variable} ${cardo.variable}`}
       >
         <NextAuthProvider>
-          <BookingProvider>{children}</BookingProvider>
+          <ServicesProvider>
+            <BookingProvider>{children}</BookingProvider>
+          </ServicesProvider>
         </NextAuthProvider>
         <Toaster />
       </body>
