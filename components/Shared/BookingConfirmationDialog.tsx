@@ -26,7 +26,7 @@ const BookingConfirmationDialog = ({
     email: string;
     date: Date | undefined;
     time: string | number | readonly string[] | undefined;
-    service: Service;
+    service: Service | undefined;
   };
 }) => {
   const { data: session } = useSession();
@@ -92,9 +92,9 @@ const BookingConfirmationDialog = ({
               <strong>Time:</strong> {appointment.time}
             </p>
             <p>
-              <strong>Service:</strong> {appointment.service.service} -{" "}
-              {appointment.service.price !== "Negotiable" && "₦"}
-              {appointment.service.price}
+              <strong>Service:</strong> {appointment?.service?.service} -{" "}
+              {appointment?.service?.price !== "Negotiable" && "₦"}
+              {appointment?.service?.price}
             </p>
           </DialogDescription>
           <div>
