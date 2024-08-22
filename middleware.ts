@@ -2,7 +2,7 @@ import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 import { authConfig } from "@/lib/auth";
 
-const adminRoutes = ["/dashboard"];
+const adminRoutes = ["/dashboard", "/services"];
 const userOnlyRoutes = ["/bookings", "/appointment"];
 const protectedRoutes = [...adminRoutes, "/bookings"];
 
