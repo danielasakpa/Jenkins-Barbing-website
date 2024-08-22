@@ -1,9 +1,10 @@
 export interface Service {
-  id: number;
+  id: string;
   service: string;
   price: string;
   desc: string;
   negotiable?: boolean;
+  imageUrl: string;
 }
 
 export interface Booking {
