@@ -76,7 +76,18 @@ export async function DELETE(
     if (service.imageUrl) {
       const publicId = service.imageUrl.split("/").pop()?.split(".")[0];
       if (publicId) {
-        await cloudinary.uploader.destroy(`services/${publicId}`);
+        try {
+          await cloudinary.uploader.destroy(`services/${publicId}`);
+        } catch (cloudinaryError) {
+          console.error(
+            "Error deleting image from Cloudinary:",
+            cloudinaryError
+          );
+          return NextResponse.json(
+            { error: "Failed to delete image from Cloudinary" },
+            { status: 500 }
+          );
+        }
       }
     }
 
