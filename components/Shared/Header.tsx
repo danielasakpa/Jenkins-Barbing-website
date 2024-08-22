@@ -36,7 +36,9 @@ const Header = () => {
         prefetch={false}
       >
         <ScissorsIcon className="w-7 h-7" />
-        <span className="p-medium-20 lg:p-medium-24 text-white">Jenkins</span>
+        <span className="p-medium-20 lg:p-medium-24 text-white">
+          Jenkins Haircut
+        </span>
       </Link>
       <nav
         className={`${
@@ -49,7 +51,8 @@ const Header = () => {
               if (item.title === "Appointment") return !session?.user?.isAdmin; // Always show Appointment
               if (item.title === "Bookings")
                 return session && !session.user?.isAdmin; // Show Bookings only for authenticated non-admin users
-              if (item.title === "Dashboard") return session?.user?.isAdmin; // Show Dashboard only for admin users
+              if (item.title === "Dashboard" || item.title === "Services")
+                return session?.user?.isAdmin; // Show Dashboard only for admin users
               return true; // Show all other items by default
             })
             .map((item) => (
@@ -112,7 +115,7 @@ const Header = () => {
               >
                 <ScissorsIcon className="w-7 h-7" />
                 <span className="p-medium-20 lg:p-medium-24 text-white">
-                  Jenkins
+                  Jenkins Haircut
                 </span>
               </Link>
 
