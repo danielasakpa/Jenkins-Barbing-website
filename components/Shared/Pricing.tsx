@@ -1,8 +1,12 @@
+"use client";
+
 import React from "react";
 import Section from "./Section";
-import { prices } from "@/constants";
+import { useServices } from "@/context/ServicesContext";
 
 const Pricing = () => {
+  const { services } = useServices();
+
   return (
     <Section className="mt-8 lg:py-24 px-6 md:px-0 flex flex-col items-center justify-center text-center">
       <div className="md:w-[50%] flex flex-col items-center justify-center">
@@ -15,7 +19,7 @@ const Pricing = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:px-16 mt-12">
-        {prices.map((price) => (
+        {services.map((price) => (
           <div className="p-2" key={price.id}>
             <span className="flex flex-col md:flex-row items-center p-medium-20">
               <span className="md:h4-medium text1 whitespace-nowrap">
@@ -25,7 +29,7 @@ const Pricing = () => {
                 &nbsp;
               </span>{" "}
               <span className="md:h4-medium text1">
-                {!price.Negotiable ? "₦" : null}
+                {!price.negotiable ? "₦" : null}
                 {price.price}
               </span>
             </span>
