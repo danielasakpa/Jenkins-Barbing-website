@@ -102,6 +102,15 @@ const ImageUploader = ({ setUploaded }: ImageUploaderProps) => {
     }
   };
 
+  const truncateFileName = (fileName: string, maxLength = 20) => {
+    if (fileName.length > maxLength) {
+      const extension = fileName.split(".").pop() || [];
+      const name = fileName.slice(0, maxLength - extension.length - 3);
+      return `${name}...${extension}`;
+    }
+    return fileName;
+  };
+
   return (
     <Card className="w-full max-w-md bg-black mx-auto text-white mb-5">
       <CardHeader>
@@ -119,7 +128,12 @@ const ImageUploader = ({ setUploaded }: ImageUploaderProps) => {
               required
             />
             {/* Display the selected file name */}
-            {file && <p className="text-sm mt-2">Selected file: {file.name}</p>}
+            {file && (
+              <p className="text-sm mt-2">
+                {" "}
+                Selected file: {truncateFileName(file.name)}
+              </p>
+            )}
           </div>
           <div className="space-y-2">
             <Label htmlFor="title">Image Title (optional)</Label>
