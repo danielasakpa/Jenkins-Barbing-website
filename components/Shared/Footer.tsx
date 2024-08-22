@@ -66,7 +66,9 @@ const Footer = () => (
         prefetch={false}
       >
         <ScissorsIcon className="w-7 h-7" />
-        <span className="p-medium-20 lg:p-medium-24 text-white"> Jenkins</span>
+        <span className="p-medium-20 lg:p-medium-24 text-white">
+          Jenkins Haircut
+        </span>
       </Link>
       <span className="block mt-2 text-white opacity-80">
         We create styles for the way you look and the way you live!
