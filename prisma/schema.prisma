@@ -28,6 +28,15 @@ model Booking {
   user            User      @relation(fields: [userId], references: [id])
 }
 
+model service {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  service         String   
+  price           String
+  desc            String
+  negotiable      Boolean?
+  imageUrl        String
+}
+
 model GalleryImage {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   imageUrl  String
