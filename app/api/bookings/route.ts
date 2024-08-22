@@ -73,7 +73,6 @@ export async function POST(request: NextRequest) {
     });
 
     if (existingBooking) {
-      console.log("You have already booked an appointment for this date.");
       return NextResponse.json(
         { message: "You have already booked an appointment for this date." },
         { status: 400 }
