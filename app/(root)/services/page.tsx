@@ -26,7 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
 
-const page = () => {
+const Page = () => {
   const { services, loading, updateService, deleteService, createService } =
     useServices();
   const [editingService, setEditingService] = useState<Service | null>(null);
@@ -361,4 +361,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
