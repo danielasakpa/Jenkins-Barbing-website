@@ -131,7 +131,7 @@ const Header = () => {
                       return !session?.user?.isAdmin; // Always show Appointment
                     if (item.title === "Bookings")
                       return session && !session.user?.isAdmin; // Show Bookings only for authenticated non-admin users
-                    if (item.title === "Dashboard")
+                    if (item.title === "Dashboard" || item.title === "Services")
                       return session?.user?.isAdmin; // Show Dashboard only for admin users
                     return true; // Show all other items by default
                   })
