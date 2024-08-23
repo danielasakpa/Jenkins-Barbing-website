@@ -33,7 +33,6 @@ const BookingDetails = () => {
 
   const formattedDate = date ? format(date, "MMMM do, yyyy") : "";
 
-  console.log(selectedService.imageUrl);
   return (
     <div className="flex flex-col md:flex-row mt-6 mb-12 md:px-16">
       <div className="basis-1/2 order-last md:order-first mt-6 lg:mt-0">
