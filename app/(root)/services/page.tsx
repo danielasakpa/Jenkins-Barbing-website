@@ -101,7 +101,7 @@ const Page = () => {
 
       {/* List of Services */}
       {services.map((service) => (
-        <div key={service.id} className="mb-4 p-4 border rounded-lg gap-2">
+        <div key={service.id} className="mb-4 p-4 rounded-lg gap-2">
           <Image
             src={service.imageUrl}
             className="w-full rounded-lg overflow-hidden object-cover aspect-[4/3] mb-2"
