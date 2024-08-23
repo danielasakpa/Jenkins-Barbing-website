@@ -98,155 +98,156 @@ const Page = () => {
   return (
     <div className="p-4 mt-8">
       <h1 className="text-xl font-bold mb-4">Manage Services</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* List of Services */}
+        {services.map((service) => (
+          <div key={service.id} className="mb-4 p-4 rounded-lg gap-2">
+            <Image
+              src={service.imageUrl}
+              className="w-full rounded-lg overflow-hidden object-cover aspect-[4/3] mb-2"
+              width="400"
+              height="300"
+              alt="Service"
+            />
+            <h2 className="text-lg font-semibold">{service.service}</h2>
+            <p className="text-sm">
+              Price: {service.negotiable ? "Negotiable" : service.price}
+            </p>
+            <p className="text-sm">Description: {service.desc}</p>
+            <p className="text-sm">
+              Negotiable:{" "}
+              <span
+                className={`${
+                  service.negotiable ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {service.negotiable ? "true" : "false"}
+              </span>
+            </p>
+            <div className="flex gap-2 mt-2">
+              <button
+                onClick={() => handleEditService(service)}
+                className="px-4 py-2 bg-blue-500 text-white rounded"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDeleteService(service.id)}
+                className="px-4 py-2 bg-red-500 text-white rounded"
+              >
+                Delete
+              </button>
+            </div>
 
-      {/* List of Services */}
-      {services.map((service) => (
-        <div key={service.id} className="mb-4 p-4 rounded-lg gap-2">
-          <Image
-            src={service.imageUrl}
-            className="w-full rounded-lg overflow-hidden object-cover aspect-[4/3] mb-2"
-            width="400"
-            height="300"
-            alt="Service"
-          />
-          <h2 className="text-lg font-semibold">{service.service}</h2>
-          <p className="text-sm">
-            Price: {service.negotiable ? "Negotiable" : service.price}
-          </p>
-          <p className="text-sm">Description: {service.desc}</p>
-          <p className="text-sm">
-            Negotiable:{" "}
-            <span
-              className={`${
-                service.negotiable ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {service.negotiable ? "true" : "false"}
-            </span>
-          </p>
-          <div className="flex gap-2 mt-2">
-            <button
-              onClick={() => handleEditService(service)}
-              className="px-4 py-2 bg-blue-500 text-white rounded"
-            >
-              Edit
-            </button>
-            <button
-              onClick={() => handleDeleteService(service.id)}
-              className="px-4 py-2 bg-red-500 text-white rounded"
-            >
-              Delete
-            </button>
-          </div>
-
-          {/* Edit Service Dialog */}
-          {editingService && (
-            <Dialog open onOpenChange={() => setEditingService(null)}>
-              <DialogContent className="rounded-md">
-                <DialogHeader>
-                  <DialogTitle>Edit Service</DialogTitle>
-                  <DialogDescription>
-                    Update the details of the service.
-                  </DialogDescription>
-                </DialogHeader>
-                <input
-                  type="text"
-                  value={editingService.service}
-                  onChange={(e) =>
-                    setEditingService({
-                      ...editingService,
-                      service: e.target.value,
-                    })
-                  }
-                  className="block w-full mb-2 p-2 border rounded"
-                  placeholder="Service Name"
-                />
-                <input
-                  type="text"
-                  value={
-                    editingService.negotiable
-                      ? "Negotiable"
-                      : editingService.price
-                  }
-                  onChange={(e) => {
-                    if (!editingService.negotiable) {
+            {/* Edit Service Dialog */}
+            {editingService && (
+              <Dialog open onOpenChange={() => setEditingService(null)}>
+                <DialogContent className="rounded-md">
+                  <DialogHeader>
+                    <DialogTitle>Edit Service</DialogTitle>
+                    <DialogDescription>
+                      Update the details of the service.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <input
+                    type="text"
+                    value={editingService.service}
+                    onChange={(e) =>
                       setEditingService({
                         ...editingService,
-                        price: e.target.value,
-                      });
+                        service: e.target.value,
+                      })
                     }
-                  }}
-                  disabled={editingService.negotiable}
-                  className="block w-full mb-2 p-2 border rounded"
-                  placeholder="Price"
-                />
-                <textarea
-                  value={editingService.desc}
-                  onChange={(e) =>
-                    setEditingService({
-                      ...editingService,
-                      desc: e.target.value,
-                    })
-                  }
-                  className="block w-full mb-2 p-2 border rounded"
-                  placeholder="Description"
-                />
-                <input
-                  type="file"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file && validateImage(file)) {
-                      const reader = new FileReader();
-                      reader.onloadend = () => {
+                    className="block w-full mb-2 p-2 border rounded"
+                    placeholder="Service Name"
+                  />
+                  <input
+                    type="text"
+                    value={
+                      editingService.negotiable
+                        ? "Negotiable"
+                        : editingService.price
+                    }
+                    onChange={(e) => {
+                      if (!editingService.negotiable) {
                         setEditingService({
                           ...editingService,
-                          imageUrl: reader.result as string,
+                          price: e.target.value,
                         });
-                      };
-                      reader.readAsDataURL(file);
-                    }
-                  }}
-                  className="block w-full mb-2 p-2 border rounded"
-                />
-                {editingService.imageUrl && (
-                  <img
-                    src={editingService.imageUrl}
-                    alt="Service"
-                    className="w-full h-32 object-cover mb-2 rounded"
-                  />
-                )}
-                <label className="flex items-center mb-2">
-                  <input
-                    type="checkbox"
-                    checked={editingService.negotiable}
-                    onChange={(e) => {
-                      const isNegotiable = e.target.checked;
-                      setPrevPrice(editingService.price);
-                      setEditingService((prev) => ({
-                        ...prev!,
-                        negotiable: isNegotiable,
-                        price: isNegotiable ? "Negotiable" : prevPrice || "0",
-                      }));
+                      }
                     }}
-                    className="mr-2"
+                    disabled={editingService.negotiable}
+                    className="block w-full mb-2 p-2 border rounded"
+                    placeholder="Price"
                   />
-                  Negotiable
-                </label>
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <button
-                      onClick={handleUpdateService}
-                      className="px-4 py-2 bg-[#028391] text-white rounded"
-                    >
-                      Save Changes
-                    </button>
-                  </DialogClose>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          )}
-        </div>
-      ))}
+                  <textarea
+                    value={editingService.desc}
+                    onChange={(e) =>
+                      setEditingService({
+                        ...editingService,
+                        desc: e.target.value,
+                      })
+                    }
+                    className="block w-full mb-2 p-2 border rounded"
+                    placeholder="Description"
+                  />
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file && validateImage(file)) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                          setEditingService({
+                            ...editingService,
+                            imageUrl: reader.result as string,
+                          });
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                    className="block w-full mb-2 p-2 border rounded"
+                  />
+                  {editingService.imageUrl && (
+                    <img
+                      src={editingService.imageUrl}
+                      alt="Service"
+                      className="w-full h-32 object-cover mb-2 rounded"
+                    />
+                  )}
+                  <label className="flex items-center mb-2">
+                    <input
+                      type="checkbox"
+                      checked={editingService.negotiable}
+                      onChange={(e) => {
+                        const isNegotiable = e.target.checked;
+                        setPrevPrice(editingService.price);
+                        setEditingService((prev) => ({
+                          ...prev!,
+                          negotiable: isNegotiable,
+                          price: isNegotiable ? "Negotiable" : prevPrice || "0",
+                        }));
+                      }}
+                      className="mr-2"
+                    />
+                    Negotiable
+                  </label>
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <button
+                        onClick={handleUpdateService}
+                        className="px-4 py-2 bg-[#028391] text-white rounded"
+                      >
+                        Save Changes
+                      </button>
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            )}
+          </div>
+        ))}
+      </div>
 
       {/* Create New Service Form */}
       <Card className="w-full max-w-md bg-black mx-auto text-white mb-5 mt-8">
