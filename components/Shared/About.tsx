@@ -12,7 +12,7 @@ const About = () => {
             experience, Jenkins delivers sharp cuts and a welcoming vibe that
             keeps clients coming back. Our passion for precision and attention
             to detail ensures that every haircut is a masterpiece. Whether
-            you're looking for a classic cut or the latest trend, we're
+            you&aposre looking for a classic cut or the latest trend, we&aposre
             dedicated to enhancing your unique style. Step into our chair and
             experience the difference – where your look is our passion, and your
             satisfaction is our priority.
