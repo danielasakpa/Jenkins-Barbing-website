@@ -7,15 +7,15 @@ const About = () => {
       <div className="container grid gap-12 px-6 md:px-14 lg:grid-cols-2 lg:gap-20">
         <div className="text-left lg:text-center flex flex-col justify-center  space-y-6">
           <h1 className="h1-bold text-4xl lg:text-5xl">About us</h1>
-          <p className="mt-4 p-regular-18 max-w-2xl text-left">
+          <p className="mt-4 p-regular-18 max-w-2xl">
             Jenkins Haircut is where style meets skill. With over a decade of
             experience, Jenkins delivers sharp cuts and a welcoming vibe that
             keeps clients coming back. Our passion for precision and attention
             to detail ensures that every haircut is a masterpiece. Whether
-            you&aposre looking for a classic cut or the latest trend, we&aposre
-            dedicated to enhancing your unique style. Step into our chair and
-            experience the difference – where your look is our passion, and your
-            satisfaction is our priority.
+            you&apos;re looking for a classic cut or the latest trend,
+            we&apos;re dedicated to enhancing your unique style. Step into our
+            chair and experience the difference – where your look is our
+            passion, and your satisfaction is our priority.
           </p>
         </div>
         <div className="flex justify-center items-center mt-12 lg:mt-0">
