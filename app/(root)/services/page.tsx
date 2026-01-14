@@ -273,6 +273,7 @@ const Page = () => {
                     className="mt-2"
                   />
                   {editingService.imageUrl && (
+                    // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={editingService.imageUrl}
                       alt="Preview"

@@ -65,7 +65,7 @@ export default function Home() {
           </h2>
           
           <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
-            Don't just take our word for it—discover what our clients have to say about their exceptional experience at Jenkins Haircut
+            Don&apos;t just take our word for it—discover what our clients have to say about their exceptional experience at Jenkins Haircut
           </p>
         </div>
         

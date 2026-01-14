@@ -31,8 +31,8 @@ const About = () => {
 
           <p className="text-lg text-gray-600 leading-relaxed">
             Our passion for precision and attention to detail ensures that every
-            haircut is a masterpiece. Whether you're looking for a classic cut or
-            the latest trend, we're dedicated to enhancing your unique style.
+            haircut is a masterpiece. Whether you&apos;re looking for a classic cut or
+            the latest trend, we&apos;re dedicated to enhancing your unique style.
           </p>
 
           <p className="text-lg text-gray-600 leading-relaxed">

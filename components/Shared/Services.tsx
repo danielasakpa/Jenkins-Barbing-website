@@ -40,7 +40,7 @@ const Services = () => {
 
         <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
           At Jenkins Haircut, we offer a range of grooming services to keep you
-          looking your best. Whether you're after a classic cut or a fresh new
+          looking your best. Whether you&apos;re after a classic cut or a fresh new
           style, our skilled barbers are here to deliver.
         </p>
       </div>
