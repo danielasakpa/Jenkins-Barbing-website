@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { navigation } from "@/constants/index";
 import Button from "@/components/Shared/Button";
-import { Menu, LogOut } from "lucide-react";
+import { Menu, LogOut, X } from "lucide-react";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
@@ -23,158 +23,196 @@ const Header = () => {
 
   const handleClick = () => {
     if (!openNavigation) return;
-
-    // enablePageScroll();
     setOpenNavigation(false);
   };
 
   return (
-    <header className="fixed top-0 left-0 z-50 bg-[#222324] flex h-20 w-full items-center justify-between px-4 md:px-6">
-      <Link
-        href="/"
-        className="mr-6 flex items-center text-white"
-        prefetch={false}
-      >
-        <ScissorsIcon className="w-7 h-7" />
-        <span className="p-medium-20 lg:p-medium-24 text-white">
-          Jenkins Haircut
-        </span>
-      </Link>
-      <nav
-        className={`${
-          openNavigation ? "flex" : "hidden"
-        } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
-      >
-        <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
+    <header className="fixed top-0 left-0 z-50 w-full bg-black/95 backdrop-blur-lg border-b border-gray-800/50 shadow-lg">
+      <div className="flex h-20 items-center justify-between px-4 md:px-6 max-w-[1400px] mx-auto">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-white group transition-all duration-300 hover:scale-105"
+          prefetch={false}
+        >
+          <div className="w-10 h-10 bg-gradient-to-br from-[#028391] to-cyan-600 rounded-xl flex items-center justify-center shadow-lg shadow-[#028391]/30 group-hover:shadow-[#028391]/50 transition-all duration-300">
+            <ScissorsIcon className="w-6 h-6" />
+          </div>
+          <span className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            Jenkins Haircut
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-1">
           {navigation
             .filter((item) => {
-              if (item.title === "Appointment") return !session?.user?.isAdmin; // Always show Appointment
+              if (item.title === "Appointment") return !session?.user?.isAdmin;
               if (item.title === "Bookings")
-                return session && !session.user?.isAdmin; // Show Bookings only for authenticated non-admin users
+                return session && !session.user?.isAdmin;
               if (item.title === "Dashboard" || item.title === "Services")
-                return session?.user?.isAdmin; // Show Dashboard only for admin users
-              return true; // Show all other items by default
+                return session?.user?.isAdmin;
+              return true;
             })
             .map((item) => (
               <Link
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block relative font-code mx-0 p-regular-14 opacity-80 text-white text-n-1 transition-colors hover:text-[#028391] px-6 py-6 md:py-8  ${
-                  item.url === pathname && "z-2 lg:text-[#028391]"
-                } lg:leading-5 xl:px-6`}
+                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                  item.url === pathname
+                    ? "text-[#028391] bg-[#028391]/10"
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
               >
                 {item.title}
+                {item.url === pathname && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-[#028391] to-cyan-600 rounded-full" />
+                )}
               </Link>
             ))}
-        </div>
-      </nav>
-      <div className="flex items-center gap-2">
-        {session ? (
-          <div className="flex gap-4 items-center">
-            <span className="hidden lg:block text-[#028391] p-medium-16">
-              Welcome {session.user?.name?.split(/\s+/)[0]}
-            </span>
-            <Button
-              onClick={handleSignOut}
-              className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white hover:text-[#028391]"
-            >
-              Sign Out
-            </Button>
-          </div>
-        ) : (
-          <>
-            <Link href="/sign-up">
+        </nav>
+
+        {/* Desktop Auth Buttons */}
+        <div className="hidden lg:flex items-center gap-3">
+          {session ? (
+            <>
+              <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-lg border border-gray-800">
+                <div className="w-8 h-8 bg-gradient-to-br from-[#028391] to-cyan-600 rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                  {session.user?.name?.charAt(0).toUpperCase()}
+                </div>
+                <span className="text-sm font-medium text-gray-300">
+                  {session.user?.name?.split(/\s+/)[0]}
+                </span>
+              </div>
               <Button
-                variant="outline"
-                className="hidden sm:inline-flex text-[#028391]"
+                onClick={handleSignOut}
+                className="px-4 py-2 bg-gradient-to-r from-[#028391] to-cyan-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-[#028391]/30 transition-all duration-300 hover:scale-105"
               >
-                Create Account
+                Sign Out
               </Button>
-            </Link>
-            <Link href="/sign-in">
-              <Button className="hidden sm:inline-flex text-white bg-[#028391] hover:bg-white hover:text-[#028391]">
-                Sign In
-              </Button>
-            </Link>
-          </>
-        )}
+            </>
+          ) : (
+            <>
+              <Link href="/sign-up">
+                <Button
+                  variant="outline"
+                  className="px-4 py-2 border-2 border-[#028391] text-[#028391] font-medium rounded-lg hover:bg-[#028391] hover:text-white transition-all duration-300"
+                >
+                  Create Account
+                </Button>
+              </Link>
+              <Link href="/sign-in">
+                <Button className="px-4 py-2 bg-gradient-to-r from-[#028391] to-cyan-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-[#028391]/30 transition-all duration-300 hover:scale-105">
+                  Sign In
+                </Button>
+              </Link>
+            </>
+          )}
+        </div>
+
+        {/* Mobile Menu Button */}
         <Sheet>
           <SheetTrigger asChild>
-            <div className="lg:hidden p-1 bg-white rounded">
-              <Menu />
+            <button className="lg:hidden p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-200">
+              <Menu className="w-6 h-6 text-white" />
               <span className="sr-only">Toggle navigation menu</span>
-            </div>
+            </button>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-[#222324]">
-            <div className="grid gap-4 p-4">
-              <Link
-                href="/"
-                className="flex items-center text-white"
-                prefetch={false}
-              >
-                <ScissorsIcon className="w-7 h-7" />
-                <span className="p-medium-20 lg:p-medium-24 text-white">
-                  Jenkins Haircut
-                </span>
-              </Link>
+          <SheetContent 
+            side="left" 
+            className="bg-black/95 backdrop-blur-lg border-r border-gray-800 w-[300px] p-0"
+          >
+            <div className="flex flex-col h-full">
+              {/* Mobile Header */}
+              <div className="p-6 border-b border-gray-800">
+                <Link
+                  href="/"
+                  className="flex items-center gap-2 text-white"
+                  prefetch={false}
+                >
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#028391] to-cyan-600 rounded-xl flex items-center justify-center shadow-lg shadow-[#028391]/30">
+                    <ScissorsIcon className="w-6 h-6" />
+                  </div>
+                  <span className="text-lg font-bold">Jenkins Haircut</span>
+                </Link>
+              </div>
 
+              {/* User Info (if logged in) */}
               {session && (
-                <span className="text-[#028391] p-medium-18">
-                  Welcome {session.user?.name?.split(/\s+/)[0]}
-                </span>
+                <div className="p-6 border-b border-gray-800">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#028391] to-cyan-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-[#028391]/30">
+                      {session.user?.name?.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">
+                        {session.user?.name}
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        {session.user?.email}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
-              <nav className="grid gap-2">
+
+              {/* Mobile Navigation */}
+              <nav className="flex-1 p-6 space-y-2">
                 {navigation
                   .filter((item) => {
                     if (item.title === "Appointment")
-                      return !session?.user?.isAdmin; // Always show Appointment
+                      return !session?.user?.isAdmin;
                     if (item.title === "Bookings")
-                      return session && !session.user?.isAdmin; // Show Bookings only for authenticated non-admin users
+                      return session && !session.user?.isAdmin;
                     if (item.title === "Dashboard" || item.title === "Services")
-                      return session?.user?.isAdmin; // Show Dashboard only for admin users
-                    return true; // Show all other items by default
+                      return session?.user?.isAdmin;
+                    return true;
                   })
                   .map((item) => (
                     <Link
                       key={item.id}
                       href={item.url}
-                      className={`flex items-center gap-2 text-sm text-white font-medium transition-colors ${
-                        item.url === pathname &&
-                        "z-2 text-[#028391] active:text-[#028391] focus:text-[#028391]"
-                      } `}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+                        item.url === pathname
+                          ? "bg-[#028391]/10 text-[#028391] border-l-4 border-[#028391]"
+                          : "text-gray-300 hover:bg-white/5 hover:text-white"
+                      }`}
                       prefetch={false}
                     >
                       {item.title}
                     </Link>
                   ))}
-                {session && (
+              </nav>
+
+              {/* Mobile Auth Buttons */}
+              <div className="p-6 border-t border-gray-800 space-y-3">
+                {session ? (
                   <Button
                     onClick={handleSignOut}
-                    className="flex items-center gap-3 mt-4 text-white bg-[#028391] w-full hover:bg-white hover:text-[#222324]"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-[#028391] to-cyan-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-[#028391]/30 transition-all duration-200"
                   >
-                    <LogOut size={16} />
+                    <LogOut size={18} />
                     Sign Out
                   </Button>
+                ) : (
+                  <>
+                    <Link href="/sign-up" className="block">
+                      <Button
+                        variant="outline"
+                        className="w-full py-3 border-2 border-[#028391] text-[#028391] font-medium rounded-lg hover:bg-[#028391] hover:text-white transition-all duration-200"
+                      >
+                        Create Account
+                      </Button>
+                    </Link>
+                    <Link href="/sign-in" className="block">
+                      <Button className="w-full py-3 bg-gradient-to-r from-[#028391] to-cyan-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-[#028391]/30 transition-all duration-200">
+                        Sign In
+                      </Button>
+                    </Link>
+                  </>
                 )}
-              </nav>
-              {!session && (
-                <div className="flex flex-col gap-2">
-                  <Link href="/sign-up">
-                    <Button
-                      variant="outline"
-                      className="inline-flex text-[#222324] hover:bg-[#028391] hover:text-white w-full"
-                    >
-                      Create Account
-                    </Button>
-                  </Link>
-                  <Link href="/sign-in">
-                    <Button className="flex items-center gap-3 text-white bg-[#028391] w-full hover:bg-white hover:text-[#222324]">
-                      Sign In
-                    </Button>
-                  </Link>
-                </div>
-              )}
+              </div>
             </div>
           </SheetContent>
         </Sheet>

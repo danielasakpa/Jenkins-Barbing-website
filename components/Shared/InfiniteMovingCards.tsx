@@ -18,109 +18,75 @@ function InfiniteMovingCardsDemo() {
 const testimonials = [
   {
     quote:
-      "Jenkins is a true professional. I always leave the shop looking sharp and feeling confident. Highly recommend!",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Jenkins takes his time and really listens. My haircut came out clean, sharp, and exactly how I wanted it.",
+    name: "Michael Turner",
+    title: "Product Designer",
     img: "/test1.jpg",
   },
   {
     quote:
-      "The atmosphere is welcoming, and the service is top-notch. Jenkins knows exactly how to deliver the perfect cut every time.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+      "From the moment you walk in, you feel comfortable. The service is professional and the results speak for themselves.",
+    name: "David Coleman",
+    title: "Fitness Coach",
     img: "/test2.jpg",
   },
   {
     quote:
-      "Best barbershop in town! Jenkins is skilled, friendly, and always makes sure you're satisfied with your look.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "I’ve tried several barbers in the area, but Jenkins stands out. Consistent quality every single visit.",
+    name: "Samuel Brooks",
+    title: "Entrepreneur",
     img: "/test3.jpg",
   },
   {
     quote:
-      "I brought my son here for his first haircut, and Jenkins made it a wonderful experience. The cut was perfect, and the service was fantastic.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "I booked online and everything was smooth. Jenkins was friendly, precise, and delivered a perfect cut.",
+    name: "Anthony Reed",
+    title: "Software Engineer",
     img: "/test4.jpg",
   },
   {
     quote:
-      "Every visit to JenkinsIt&apos; Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Attention to detail is unmatched here. You can tell Jenkins truly cares about his craft.",
+    name: "Daniel Foster",
+    title: "Photographer",
     img: "/test5.jpg",
   },
   {
     quote:
-      "Jenkins is a true professional. I always leave the shop looking sharp and feeling confident. Highly recommend!",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Great environment, great conversations, and an even better haircut. Highly recommended.",
+    name: "Brian Mitchell",
+    title: "Marketing Specialist",
     img: "/test1.jpg",
   },
   {
     quote:
-      "The atmosphere is welcoming, and the service is top-notch. Jenkins knows exactly how to deliver the perfect cut every time.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+      "Jenkins made my first visit memorable. Clean fades, sharp lines, and no rush at all.",
+    name: "Kelvin Johnson",
+    title: "University Student",
     img: "/test2.jpg",
   },
   {
     quote:
-      "Best barbershop in town! Jenkins is skilled, friendly, and always makes sure you're satisfied with your look.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "This is the kind of barbershop you stick with long-term. Professional service every time.",
+    name: "Chris Williams",
+    title: "Real Estate Agent",
     img: "/test3.jpg",
   },
   {
     quote:
-      "I brought my son here for his first haircut, and Jenkins made it a wonderful experience. The cut was perfect, and the service was fantastic.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "I brought my brother along and we both left impressed. Jenkins knows exactly what he’s doing.",
+    name: "Paul Anderson",
+    title: "Logistics Manager",
     img: "/test4.jpg",
   },
   {
     quote:
-      "Every visit to JenkinsIt&apos; Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-    img: "/test5.jpg",
-  },
-  {
-    quote:
-      "Jenkins is a true professional. I always leave the shop looking sharp and feeling confident. Highly recommend!",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
-    img: "/test1.jpg",
-  },
-  {
-    quote:
-      "The atmosphere is welcoming, and the service is top-notch. Jenkins knows exactly how to deliver the perfect cut every time.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-    img: "/test2.jpg",
-  },
-  {
-    quote:
-      "Best barbershop in town! Jenkins is skilled, friendly, and always makes sure you're satisfied with your look.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
-    img: "/test3.jpg",
-  },
-  {
-    quote:
-      "I brought my son here for his first haircut, and Jenkins made it a wonderful experience. The cut was perfect, and the service was fantastic.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-    img: "/test4.jpg",
-  },
-  {
-    quote:
-      "Every visit to JenkinsIt&apos; Barbershop is a great experience. The attention to detail is unmatched, and I always leave feeling like a new man.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Clean shop, calm atmosphere, and excellent results. Easily my go-to barbershop now.",
+    name: "Joseph Carter",
+    title: "Content Creator",
     img: "/test5.jpg",
   },
 ];
+
 
 export default InfiniteMovingCardsDemo;
